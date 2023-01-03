@@ -1,0 +1,216 @@
+Doc
+
+excluir-itens.php
+    +   exclui os itens criados para a mesa passando o id do itens_pedido
+    +   busca o produto escolhido 
+    +   atualiza o estoque para, aumentando o valor, pois o produto voltou para o estoque
+    +   deleta o item gerado anteriormente e o pedido anterior do banco
+        +   idEmpresa adicionado nas linhas 11,19,24,29 e 30
+
+fechar-mesa.php
+    +   Busca os itens dos pedidos da mesa
+    +   calcula o subtotal
+    +   calcula o total da venda
+    +   calcula o total da comissão
+    +   Atualiza os valores do pedido na tabela de pedidos.
+        +   idEmpresa adicionado nas linhas 11 e 25
+
+inserir-itens.php
+    +   Busca produtos ou pratos 
+    +   Atualiza o estoque calculando a quantidade
+    +   Insere o novo item solicitado
+        +   idEmpresa adicionado nas linhas 17,31,37 e 47
+
+inserir-pedido.php    
+    +   Insere os pedidos da mesa
+        +   idEmpresa adicionado na linha 11
+
+listar-comissoes.php
+    +   lista as comissoes acima do valor 0,00 para um determinado garcon
+        +   idEmpresa adicionado na linha 22
+
+
+listar-itens.php
+    +   lista todos so itens de um determinado pedido por idEmpresa
+    +   Lista os produtos
+    +   Lista os pratos
+    +   Exibe as informações via json
+        +   idEmpresa adicionado nas linhas 15,37 e 46
+
+
+listar-mesas.php
+    +   lista todas as mesas de um empresa
+    +   Verifica pedidos 
+    +   Lista os clientes em caso de reserva
+    +   lista os itens do pedido da reserva
+    +   Exibe as informações em tela via json
+        +   idEmpresa adicionado nas linhas 11,15,22,25,2843 e 58
+
+listar-pratos.php
+    +   Lista todos os pratos de uma determinada empresa
+    +   Se o total de registros de uma empresa for maior que 0 monta um json com o retorno
+        +   idEmpresa adicionado nas linhas 12 e 22
+		+Alterada linha 22 para fazer a query da categoria corretamente.
+
+listar-produtos.php
+    +   Lista todos os produtos por like no nome do produto de uma determinada empresa
+    +   Lista as categorias
+    +   Lista os fornecedores
+    +   Monta tudo em json e exibe em tela
+        +   idEmpresa adicionado nas linhas 12, 22 e 29
+
+--------------------------------------------------------------------------------------------------------------------------
+
+Marcelo =>
+
+listar-mesas.php
+
+Enviado:{"empresa":"2", "start":"1", "limit":"20"}
+
+Recebido:{"itens":[{"id":"7","mesa":"mesa 1","texto":"DISPON\u00cdVEL","textoif":"DISPON\u00cdVEL","img":"disponivel.png","classe":"cor-texto-verde","id_pedido":""},{"id":"8","mesa":"mesa 2","texto":"DISPON\u00cdVEL","textoif":"DISPON\u00cdVEL","img":"disponivel.png","classe":"cor-texto-verde","id_pedido":""},{"id":"9","mesa":"mesa 3","texto":"DISPON\u00cdVEL","textoif":"DISPON\u00cdVEL","img":"disponivel.png","classe":"cor-texto-verde","id_pedido":""},{"id":"10","mesa":"mesa 4","texto":"DISPON\u00cdVEL","textoif":"DISPON\u00cdVEL","img":"disponivel.png","classe":"cor-texto-verde","id_pedido":""},{"id":"11","mesa":"mesa 5","texto":"DISPON\u00cdVEL","textoif":"DISPON\u00cdVEL","img":"disponivel.png","classe":"cor-texto-verde","id_pedido":""},{"id":"12","mesa":"mesa 6","texto":"DISPON\u00cdVEL","textoif":"DISPON\u00cdVEL","img":"disponivel.png","classe":"cor-texto-verde","id_pedido":""}]}
+
+Enviado:{"empresa":"1", "start":"1", "limit":"20"}
+
+Recebido:{"itens":"0"}
+
+Enviado : {"empresa":"3", "start":"1", "limit":"20"}
+
+Recebido:{"itens":[{"id":"7","mesa":"mesa 1","texto":"DISPON\u00cdVEL","textoif":"DISPON\u00cdVEL","img":"disponivel.png","classe":"cor-texto-verde","id_pedido":""},{"id":"8","mesa":"mesa 2","texto":"DISPON\u00cdVEL","textoif":"DISPON\u00cdVEL","img":"disponivel.png","classe":"cor-texto-verde","id_pedido":""},{"id":"9","mesa":"mesa 3","texto":"DISPON\u00cdVEL","textoif":"DISPON\u00cdVEL","img":"disponivel.png","classe":"cor-texto-verde","id_pedido":""},{"id":"10","mesa":"mesa 4","texto":"DISPON\u00cdVEL","textoif":"DISPON\u00cdVEL","img":"disponivel.png","classe":"cor-texto-verde","id_pedido":""},{"id":"11","mesa":"mesa 5","texto":"DISPON\u00cdVEL","textoif":"DISPON\u00cdVEL","img":"disponivel.png","classe":"cor-texto-verde","id_pedido":""},{"id":"12","mesa":"mesa 6","texto":"DISPON\u00cdVEL","textoif":"DISPON\u00cdVEL","img":"disponivel.png","classe":"cor-texto-verde","id_pedido":""}]}
+
+
+
+
+
+listar-pratos.php
+
+Enviado: {"empresa":"3", "start":"1", "limit":"20", "nome":""}
+
+Recebido:{"itens":[{"id":"18","nome":"Pastel","valor_venda":"1000.00","imagem":"12-12-2022-23-25-39-pastel.jpeg","descricao":"pastel","nome_cat":null},{"id":"15","nome":"teste","valor_venda":"40.00","imagem":"sem-foto.jpg","descricao":"tefdf","nome_cat":null}]}
+
+
+Enviado:{"empresa":"3", "start":"1", "limit":"20", "nome":"pastel"}
+
+Recebido:{"itens":[{"id":"18","nome":"Pastel","valor_venda":"1000.00","imagem":"12-12-2022-23-25-39-pastel.jpeg","descricao":"pastel","nome_cat":null}]}
+
+
+Enviado:{"empresa":"2", "start":"1", "limit":"20", "nome":""}
+
+Recebido:{"itens":[{"id":"19","nome":"Frango","valor_venda":"20.00","imagem":"sem-foto.jpg","descricao":"Franguinho","nome_cat":null},{"id":"16","nome":"Pastel de cachorro","valor_venda":"30.00","imagem":"12-12-2022-23-18-33-pastel.jpeg","descricao":"teste","nome_cat":null}]}
+
+
+Enviado:{"empresa":"2", "start":"1", "limit":"20", "nome":"Frango"}
+
+Recebido:{"itens":[{"id":"19","nome":"Frango","valor_venda":"20.00","imagem":"sem-foto.jpg","descricao":"Franguinho","nome_cat":null}]}
+
+
+Enviado:{"empresa":"4", "start":"1", "limit":"20", "nome":""}
+
+Recebido:{"itens":[{"id":"17","nome":"gfgdf","valor_venda":"30.00","imagem":"12-12-2022-23-25-00-balde.jpeg","descricao":"gdfgdf","nome_cat":null},{"id":"14","nome":"tete","valor_venda":"20.00","imagem":"12-12-2022-22-44-28-balde.jpeg","descricao":"teste","nome_cat":null},{"id":"13","nome":"533","valor_venda":"25.00","imagem":"12-12-2022-22-44-12-balde.jpeg","descricao":"rere","nome_cat":null}]}
+
+
+
+
+
+
+listar-produtos.php
+
+Enviado:{"empresa":"3", "start":"0", "limit":"20", "nome":""}
+
+Recebido:{"itens":[{"id":"20","nome":"Vodka","estoque":"3","valor_compra":"1.00","valor_venda":"1.00","imagem":"11-12-2022-12-05-29-vodka.jpeg","descricao":"testeando1","nome_cat":"Bebidas","nome_forn":"Jonas","tel_forn":"(44) 44444-4444"},{"id":"5","nome":"Coca-Cola","estoque":"5","valor_compra":"5.00","valor_venda":"15.00","imagem":"11-12-2022-12-36-04-coca.jpg","descricao":"Coquinha gelada","nome_cat":"Bebidas","nome_forn":"Jonas","tel_forn":"(44) 44444-4444"}]};
+
+
+Enviado:{"empresa":"3", "start":"0", "limit":"1", "nome":""}
+
+Recebido:{"itens":[{"id":"20","nome":"Vodka","estoque":"3","valor_compra":"1.00","valor_venda":"1.00","imagem":"11-12-2022-12-05-29-vodka.jpeg","descricao":"testeando1","nome_cat":"Bebidas","nome_forn":"Jonas","tel_forn":"(44) 44444-4444"}]}
+
+
+Enviado:{"empresa":"2", "start":"0", "limit":"20", "nome":""}
+
+Recebido:{"itens":[{"id":"51","nome":"teste","estoque":"7","valor_compra":"1.00","valor_venda":"1.00","imagem":"sem-foto.jpg","descricao":"tete","nome_cat":"Pratos","nome_forn":"Julia","tel_forn":"(99) 99999-9999"}]}
+
+
+Enviado:{"empresa":"3", "start":"0", "limit":"20", "nome":"Coca"}
+
+Recebido:{"itens":[{"id":"5","nome":"Coca-Cola","estoque":"5","valor_compra":"5.00","valor_venda":"15.00","imagem":"11-12-2022-12-36-04-coca.jpg","descricao":"Coquinha gelada","nome_cat":"Bebidas","nome_forn":"Jonas","tel_forn":"(44) 44444-4444"}]}
+
+
+
+
+Inserir-pedido.php
+
+Enviado:{"empresa":"3", "mesa":"7"}
+
+Recebido:{"mensagem":"Salvo com Sucesso","ok":true}
+
+Funciona, ele insere dados no banco, porém não verifica se o id da mesa realmente pertence a empresa e também ele
+
+
+
+
+
+
+Inserir-itens.php
+
+Enviado:{"id":"5","tipo":"Produto","empresa":"3", "mesa":"7","pedido":"1"}
+
+Recebido:{"mensagem":"Item Adicionado","ok":true}
+
+Dados inseridos no banco
+
+Enviado:{}
+
+Recebido:{"mensagem":"Item Adicionado","ok":true}
+
+ele está retornando que o item foi adicionado com status true mesmo quando isso não acontece.
+
+
+fechar-mesa.php
+
+Enviado:{"pedido":"1","empresa":"3"}
+
+Recebido:{"mensagem":"Item Adicionado","ok":true}
+
+Atualizaou no banco com as informações do total e comissoes calculadas
+
+
+
+Enviado:{"pedido":"2","empresa":"2"}
+
+Recebido:{"mensagem":"Item Adicionado","ok":true}
+
+Também atualizou o banco com os valores corretos
+
+
+
+Enviado:{}
+
+Recebido:{"mensagem":"Item Adicionado","ok":true}
+
+ele está retornando que o item foi adicionado com status true mesmo quando isso não acontece.
+
+
+
+excluir-itens.php
+
+Enviado:{"id":"1","empresa":"3"}
+
+Recebido:{"mensagem":"Exclu\u00eddo com Sucesso","ok":true}
+
+Excluiou corretamente.
+
+
+
+
+Enviado:{"id":"3","empresa":"3"}
+
+Recebido:{"mensagem":"Exclu\u00eddo com Sucesso","ok":true}
+
+este id não correspondia a empresa, ele não excluiu mas retornou mensagem de sucesso
+
+
+Enviado:{"id":"3","empresa":"2"}
+
+Recebido:{"mensagem":"Exclu\u00eddo com Sucesso","ok":true}
+
+Excluiu corretamente.
+
